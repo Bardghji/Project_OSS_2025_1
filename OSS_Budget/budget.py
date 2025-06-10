@@ -7,8 +7,10 @@ class Budget:
         self.budget_limit = None
 
     def add_expense(self, category, description, amount):
-        today = datetime.date.today().isoformat()
-        expense = Expense(today, category, description, amount)
+        today_date_obj = datetime.date.today()
+        today_date_str = today_date_obj.isoformat()
+        day_of_week_str = today_date_obj.strftime('%a')
+        expense = Expense(today_date_str, day_of_week_str, category, description, amount)
         self.expenses.append(expense)
         print("지출이 추가되었습니다.\n")
 
